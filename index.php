@@ -3,27 +3,28 @@
     <title>Start</title>
     
     <link href="theme/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet"/>
+    <link href="theme/bootstrap-3.3.7/css/bootstrap-theme.css" rel="stylesheet"/>
     <link href="theme/css/default.css" rel="stylesheet" /> 
 
-    <script href="theme/bootstrap-3.3.7/js/bootstrap.js" />
+    <script src="theme/bootstrap-3.3.7/js/bootstrap.js"></script>
+    <script src="theme/bootstrap-3.3.7/js/npm.js"></script>
+    <script src="script/jquery.js"></script>
 
     </head>
     <body>
-     <ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-  <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
-</ul>
-
-<div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
-    <h3>HOME</h3>
-    <p>Some content.</p>
+      <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Kostenrechner</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Übersicht</a></li>
+      <li><a href="#">Einzahlen</a></li>
+      <li><a href="#">History</a></li>
+    </ul>
   </div>
-  <div id="menu1" class="tab-pane fade">
-    <h3>Menu 1</h3>
-    <p>Some content in menu 1.</p>
-  </div>
-</div> 
-    </bod>
+</nav>
+    </body>
 </html>
 
