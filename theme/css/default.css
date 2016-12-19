@@ -8,3 +8,11 @@ margin-left: 50%;
 float:right;
 margin-left:1000px;   
 }
+input{
+width: 120px !important;
+}
+form{
+margin-top: 150px;
+margin-left:30px;
+
+}
