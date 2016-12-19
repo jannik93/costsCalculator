@@ -1,6 +1,6 @@
 <?php
-include('configuration.php');
-include('index.php');
+    include('configuration.php');
+    include('index.php');
 ?>
 
 <html>
@@ -16,12 +16,12 @@ include('index.php');
     </head>
     <body>
       
-    <form action="logics/payInLogic" method="post">
+    <form action="logics/payInLogic.php" method="post">
         <div class="form-group" >
-            <label for="creditId">Betrag:</label>
-            <input type="number" class="form-control" id="creditId" name="credit"min="1" step="any">
+            <label for="cr">Betrag:</label>
+            <input type="number" class="form-control" id="cr" name="credit" min="1" step="any"/>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <input type="submit" class="btn btn-default" value="Einzahlen"/>
     </form>
   
     </body>
