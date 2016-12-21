@@ -6,17 +6,17 @@
     //show table with history
     
     $sqlHistory="SELECT Credit, CreatedTimeStamp, UserId FROM history";
-    $resultHistory = $mysqli->query($sqlHistorysql);
+    $resultHistory = $mysqli->query($sqlHistory);
  
     
 
-    if ($resultHistory->num_rows == 1) 
+    if ($resultHistory->num_rows > 0) 
         {
             echo "<table class='table table-striped'>";
             echo "<tr><th>Betrag</th>><th>Eingezahlt von:</th>><th>Eingezahlt am:</th></tr>";
           
             // output data of each row
-            while($rowHistory = $result->fetch_assoc()) 
+            while($rowHistory = $resultHistory->fetch_assoc()) 
             {
                 $userId = $rowHistory['UserId'];
                 $createdTimeStamp = $rowHistory['CreatedTimeStamp'];
@@ -25,11 +25,11 @@
 
                 $resultUser=$mysqli->query($sqlUser);
                 //get username by id
-                if ($result->num_rows == 1) 
+                if ($resultUser->num_rows == 1) 
                 {
-                    while($row = $result->fetch_assoc()) 
+                    while($rowUser = $resultUser->fetch_assoc()) 
                     {
-                        $userName =  $row['Username'];
+                        $userName =  $rowUser['Username'];
                     }     
                 }
                 else
@@ -38,7 +38,7 @@
                 }
 
                  echo "<tr>";
-                 echo "<td>$credit</td><td>['$userName']</td><td>'$createdTimeStamp'</td>";
+                 echo "<td>$credit €</td><td>$userName</td><td>$createdTimeStamp</td>";
                  echo "</tr>";
             }
             echo "</table>";

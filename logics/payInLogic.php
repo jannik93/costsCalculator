@@ -31,7 +31,7 @@
         }
 
             setcookie('$creditSaved',1);
-            header('location: ../index.php');
+            header('location: ../history.php');
     }
     else
     {

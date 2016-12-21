@@ -11,7 +11,7 @@
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">Übersicht</a></li>
                 <li><a href="payIn.php">Einzahlen</a></li>
-                <li><a href="#">History</a></li>      
+                <li><a href="history.php">History</a></li>      
             </ul>
         </div>
     </nav>
