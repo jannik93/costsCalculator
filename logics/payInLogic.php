@@ -1,30 +1,27 @@
 <?php session_start();
 
-include('../configuration.php');
+    include('../configuration.php');
     
-    echo $_Post['credit'];
-    echo $_SESSION['currentUser'];
-    exit;
-    if(isset($_Post['credit']) && isset($_SESSION['currentUser']))
+    if(isset($_POST['credit']) && isset($_SESSION['currentUser']))
     {
 
-       
-        $currentUser = $_SESSION['currentUser'];
-
-        $sql="SELECT UserId FROM users WHERE Username == '$currentUser'";
+        $currentUser = $_SESSION["currentUser"];
+        $sql="SELECT UserId FROM users WHERE Username = '$currentUser'";
         $result = $mysqli->query($sql);
+        
+        $date = date('Y-m-d H:i:s');
 
         if ($result->num_rows == 1) 
         {
             // output data of each row
             while($row = $result->fetch_assoc()) 
             {
-               $userId =  $row["id"];
+               $userId =  $row['UserId'];
                
             }
           
             $stmt = $mysqli->prepare("INSERT INTO history (Credit, UserId, LastChange) VALUES (?, ?, ?)");
-            $stmt->bind_param("dis", $_Post['credit'], $userId, date());
+            $stmt->bind_param("dis", $_POST['credit'], $userId, $date);
             $stmt->execute();
         }
         else 
