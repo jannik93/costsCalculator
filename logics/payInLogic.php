@@ -1,34 +1,44 @@
 <?php session_start();
 
 include('../configuration.php');
-include('../payIn.php');
-
+    
+    echo $_Post['credit'];
+    echo $_SESSION['currentUser'];
+    exit;
     if(isset($_Post['credit']) && isset($_SESSION['currentUser']))
     {
-        $sql = "SELECT UserID  FROM users";
-        $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) 
+       
+        $currentUser = $_SESSION['currentUser'];
+
+        $sql="SELECT UserId FROM users WHERE Username == '$currentUser'";
+        $result = $mysqli->query($sql);
+
+        if ($result->num_rows == 1) 
         {
             // output data of each row
             while($row = $result->fetch_assoc()) 
             {
                $userId =  $row["id"];
+               
             }
-
+          
             $stmt = $mysqli->prepare("INSERT INTO history (Credit, UserId, LastChange) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $_Post['credit'], $userId, date());
+            $stmt->bind_param("dis", $_Post['credit'], $userId, date());
             $stmt->execute();
         }
         else 
         {
-            echo '<div class="alert alert-warning">
-                  <strong>Warning!</strong> Beim Zugriff auf die Datenbank ist etwas schief gelaufen!
-                  </div>';
+            setcookie('userNotFound',1);
+            header('location: ../index.php');
         }
-        
-        
+
+            setcookie('$creditSaved',1);
+            header('location: ../index.php');
     }
-
-
+    else
+    {
+            setcookie('$wrongInputCredit',1);
+            header('location: ../index.php');
+    }
 ?>

@@ -1,9 +1,5 @@
 <html>
     <head>
-        <?php
-        include('index.php');
-        ?>
-
         <title>Start</title>
     </head> 
     <nav class="navbar navbar-default navbar-fixed-top">
