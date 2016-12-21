@@ -14,6 +14,7 @@
         <script src="theme/bootstrap-3.3.7/js/npm.js"></script>
         <script src="script/jquery.js"></script>
     </head>
+    
     <body>
 <<<<<<< HEAD
         <form action="logics/payInLogic.php" method="post">
