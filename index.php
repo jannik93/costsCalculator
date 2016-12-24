@@ -25,7 +25,20 @@
             echo  '<link href="theme/bootstrap-3.3.7/css/bootstrap-theme.css" rel="stylesheet"/>';
             echo  '<link href="theme/css/loginBox.css" rel="stylesheet"/>';
 
-            include('start.php');
+            echo '<nav class="navbar navbar-default navbar-fixed-top">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">Kostenrechner</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">Übersicht</a></li>
+                            <li><a href="payIn.php">Einzahlen</a></li>
+                            <li><a href="history.php">History</a></li>      
+                        </ul>
+                    </div>
+                </nav>';
+
         }
         else
         {

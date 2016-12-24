@@ -20,9 +20,20 @@
                
             }
           
-            $stmt = $mysqli->prepare("INSERT INTO history (Credit, UserId, LastChange) VALUES (?, ?, ?)");
-            $stmt->bind_param("dis", $_POST['credit'], $userId, $date);
-            $stmt->execute();
+            try 
+            {
+            $stmt = $mysqli->prepare("INSERT INTO history (Credit, UserId, LastChange) VALUES ( ?, ?, ?)");
+            $stmt->bind_param("diis", $_POST['credit'], $userId, $date);
+            $stmt->execute(); 
+            }
+            //catch exception
+            catch(Exception $e)
+            {
+                echo 'Message: ' .$e->getMessage();
+                exit;
+            }
+
+          
         }
         else 
         {
