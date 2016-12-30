@@ -19,8 +19,7 @@
                $userId =  $row['UserId'];
                
             }
-            try 
-            {
+
                 //save credit to history
                 $isAdded = 1;
                 $stmt = $mysqli->prepare("INSERT INTO history (Credit,IsAdded, UserId, LastChange) VALUES ( ?, ?, ?, ?)");
@@ -35,46 +34,40 @@
                     while($rowTotal = $resultTotal->fetch_assoc()) 
                     {
                         $LastTotal =  $rowTotal['Credit'];             
-                        $PostCredit = $_POST['credit'];
-                        $NewTotal = $LastTotal + $PostCredit;                 
+                                                            
                     }
-
-                    
-                    //save credit to total credit
-                    $sqlUpdate = "UPDATE totalcredit SET Credit = $NewTotal ";
-                    if ($mysqli->query($sqlUpdate) === TRUE) {
-                        echo "Record updated successfully";
-                    } else {
-                        echo "Error updating record: " . $conn->error;
-                    }
-
-
-                    header('location: ../history.php');
-                    setcookie('$creditSaved', 1);     
                 }
                 else
                 {
-                    //save credit to total credit
-                    $stmt = $mysqli->prepare("INSERT INTO  totalcredit (Credit) VALUES(?)");
-                    $stmt->bind_param("d", $_POST['credit']);
+                    //if no total credit exists
+                    $stmt = $mysqli->prepare("INSERT INTO totalcredit (Credit) VALUES (?)");
+                    $stmt->bind_param("d", $value = 0);
                     $stmt->execute(); 
-
-                    header('location: ../history.php');
-                    setcookie('$creditSaved', 1);  
+                    $LastTotal = 0;
                 }
+
+                $PostCredit = $_POST['credit'];
+                $NewTotal = $LastTotal + $PostCredit; 
+
                 
+                //save credit to total credit
+                $sqlUpdate = "UPDATE totalcredit SET Credit = $NewTotal ";
+                if ($mysqli->query($sqlUpdate) === TRUE) {
+                    echo "Record updated successfully";
+                } else {
+                    echo "Error updating record: " . $conn->error;
+                }
 
 
-            }
-            //catch exception
-            catch(Exception $e)
-            {
-              
-            }
+                header('location: ../history.php');
+                setcookie('$successfull', 1);     
+                
+                           
+
         }
         else 
         {
-            setcookie('userNotFound', 1);
+            setcookie('successfull', 0);
             header('location: ../index.php');
         }
     }
@@ -82,7 +75,7 @@
     {       
         echo "wronginput";
         exit;
-            setcookie('$wrongInputCredit', 1);
+            setcookie('$successfull', 0);
             header('location: ../index.php');
     }
 

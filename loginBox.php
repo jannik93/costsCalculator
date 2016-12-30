@@ -4,7 +4,7 @@
   </head>
   <body>   
   <h1 class="headerLogin">Kostenrechner</h1>
-        <form class="modal-content animate" action="loginLogic.php" method="Post">
+        <form class="modal-content animate" action="logics/loginLogic.php" method="Post">
 
             <div class="container">
                 <label><b>Benutzername</b></label>

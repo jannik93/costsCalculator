@@ -48,24 +48,19 @@
             include("loginBox.php");
         }
      
-        if(isset($_COOKIE['creditSaved']) && $_COOKIE['creditSaved'] == 1)
+        if(isset($_COOKIE['successfull']) && $_COOKIE['successfull'] == 1)
         {
             echo "<div class='alert alert-success'>
-                <strong>Gespeichert!</strong> Die Einzahlung wurde erfolgreich gespeichert!
+                <strong>Gespeichert!</strong> Eingabe erfolgreich gespeichert!
                 </div>";   
         }
-        else if(isset($_COOKIE['userNotFound']) && $_COOKIE['userNotFound'] == 1)
+        else if(isset($_COOKIE['successfull']) && $_COOKIE['successfull'] == 1)
         {
             echo "<div class='alert alert-warning'>
-                <strong>Fehler!</strong> Der im Moment angemeldete Benutzer wurde nicht gefunden!
+                <strong>Fehler!</strong> Fehler beim Speichern!
                 </div>";
         }
-        else if(isset($_COOKIE['wrongInputCredit']) && $_COOKIE['wrongInputCredit'] == 1)
-        {
-             echo "<div class='alert alert-warning'>
-                <strong>Fehler!</strong> Die eingegebene Einzahlung hatte ein falsches Format!
-                </div>";
-        }
+       
         ?>
     </body>
 </html>
