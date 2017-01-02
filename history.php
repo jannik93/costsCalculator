@@ -36,7 +36,7 @@
 
                 if($totalCredit > 0)
                 {
-                    echo '<th style="color:green">Guthaben:'.$totalCreditFormated.' €'.'</th><th></th><th></th><th>
+                    echo '<th style="color:green">Guthaben: '.$totalCreditFormated.' €'.'</th><th></th><th></th><th>
                     </tr>';
                 }
                 else

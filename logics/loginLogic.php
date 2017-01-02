@@ -1,6 +1,6 @@
 <?php  session_start();
     
-    include 'configuration.php';
+    include '../configuration.php';
     //prüfe post Daten
     if(isset($_POST['username']) && isset($_POST['password']))
     {
@@ -29,12 +29,12 @@
         
         $_SESSION['currentUser'] = $username;
 
-        header("Location: index.php");
+        header("Location: ../index.php");
     
     }
     else 
     {
-        header("Location: index.php");
+        header("Location: ../index.php");
     }
 
     //return to start

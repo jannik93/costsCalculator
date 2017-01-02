@@ -6,17 +6,65 @@ include("index.php");
 // $sqlHistory = "SELECT Credit FROM history WHERE CreatedTimeStamp ";
 // $resultHistory = $mysqli->query($sqlHistory);
 
-// $sqlTotalCredit = "SELECT Credit FROM totalcredit";;
-// $resultTotalCredit = $mysqli->query($sqlTotalCredit);
+$date = Date("m");
+
+echo '<table class="table table-striped">
+        <tr>
+            <th>Monat</th>
+            <th>Ausgaben</th>
+        </tr>';
+
+for($i = 1; $i <= $date; $i ++)
+{
+    
+    $sql = "SELECT Credit,CreatedTimeStamp FROM history WHERE MONTH(CreatedTimeStamp) = $i";
+    $result = $mysqli->query($sql);
+
+    if ($result->num_rows > 0)
+    {
+        while($row = $result->fetch_assoc()) 
+        {
+            $monthlyCredit += $row['Credit'];
+            
+        }
+
+    }
+    else
+    {
+        exit;
+    }
+
+    $monthAsString = get_month_name($i);
+    echo '<tr>
+            <td>'.$monthAsString.'</td>
+            <td>'.$monthlyCredit.'</td>
+        </tr>';
+}
+
+echo "</table>";
 
 
-// if ($resultTotalCredit->num_rows > 0)
-//     {
-//     while($rowTotaLCredit = $resultTotalCredit->fetch_assoc()) 
-//     {
-//         $totalCredit = $rowTotaLCredit['Credit'];
-//         $totalCreditFormated = number_format($totalCredit , 2 , "," , "." );
-//     }
-// }   
+
+function get_month_name($month)
+{
+    $months = array(
+        1   =>  'January',
+        2   =>  'February',
+        3   =>  'March',
+        4   =>  'April',
+        5   =>  'May',
+        6   =>  'June',
+        7   =>  'July',
+        8   =>  'August',
+        9   =>  'September',
+        10  =>  'October',
+        11  =>  'November',
+        12  =>  'December'
+    );
+
+    return $months[$month];
+}
+
+  
 
 ?>
