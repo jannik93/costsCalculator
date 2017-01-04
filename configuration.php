@@ -1,12 +1,14 @@
 <?php
     
-    //local
+   	// $servername = "localhost";
+    // $dbUsername = "jannik93";
+    // $dbPassword = "jannikx3y";
+	// $dbDatabaseName = "jannik93";
+
     $servername = "localhost";
     $dbUsername = "root";
     $dbPassword = "";
-    $dbDatabaseName = "costsCalculator";
-
-
+	$dbDatabaseName = "costscalculator";
     //Create connection
     $mysqli =  mysqli_connect($servername, $dbUsername, $dbPassword, $dbDatabaseName);
     

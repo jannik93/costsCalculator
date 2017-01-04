@@ -7,6 +7,7 @@ include("index.php");
 // $resultHistory = $mysqli->query($sqlHistory);
 
 $date = Date("m");
+echo "<title>Übersicht</title>";
 
 echo '<table class="table table-striped">
         <tr>
@@ -17,7 +18,7 @@ echo '<table class="table table-striped">
 for($i = 1; $i <= $date; $i ++)
 {
     
-    $sql = "SELECT Credit,CreatedTimeStamp FROM history WHERE MONTH(CreatedTimeStamp) = $i";
+    $sql = "SELECT Credit,CreatedTimeStamp FROM history WHERE MONTH(CreatedTimeStamp) = $i AND IsAdded = 0";
     $result = $mysqli->query($sql);
 
     if ($result->num_rows > 0)

@@ -6,14 +6,17 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="de">
   
     <head>
-        <title>Start</title>
+
+        <meta charset="utf-8"/>
 
         <script src="theme/bootstrap-3.3.7/js/bootstrap.js"></script>
         <script src="theme/bootstrap-3.3.7/js/npm.js"></script>
         <script src="script/jquery.js"></script>
+
+        <link rel="icon" type="image/png" href="theme/images/icon.png" sizes="16x16">
 
     </head>
     <body>

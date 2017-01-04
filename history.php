@@ -3,6 +3,8 @@
     {
         session_start();
     }
+    echo "<title>History</title>";
+    
     if(isset($_SESSION['currentUser']))
     {
 

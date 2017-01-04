@@ -31,7 +31,7 @@ if(!isset($_SESSION))
         $stmt->bind_param("diiss", $_POST['costs'], $isAdded, $userId,$_POST['comment'], $date);
         $stmt->execute(); 
 
-        $sqlGetLastTotal = "SELECT Credit from TotalCredit";
+        $sqlGetLastTotal = "SELECT Credit from totalcredit";
         $resultTotal = $mysqli->query($sqlGetLastTotal);
 
         if ($resultTotal->num_rows > 0) 
@@ -46,16 +46,19 @@ if(!isset($_SESSION))
 
             //save credit to total credit
             $sqlUpdate = "UPDATE totalcredit SET Credit = $NewTotal ";
-            if ($mysqli->query($sqlUpdate) === TRUE) {
-                echo "Record updated successfully";
-            } else {
+            if ($mysqli->query($sqlUpdate) === TRUE) 
+            {
+                header('location: ../history.php');
+                setcookie('$successfull', 1); 
+            }
+            else 
+            {
                 echo "Error updating record: " . $conn->error;
             }
         }
 
 
-        header('location: ../history.php');
-        setcookie('$successfull', 1);     
+         
     
 
         setcookie('successfull',1);
