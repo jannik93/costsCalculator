@@ -38,7 +38,7 @@ for($i = 1; $i <= $date; $i ++)
     $monthAsString = get_month_name($i);
     echo '<tr>
             <td>'.$monthAsString.'</td>
-            <td>'.$monthlyCredit.'</td>
+            <td>'.$monthlyCredit.' €'.'</td>
         </tr>';
 }
 
