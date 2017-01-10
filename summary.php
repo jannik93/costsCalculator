@@ -2,9 +2,6 @@
 include ("configuration.php");
 include("index.php");
 
-//get history from specific months
-// $sqlHistory = "SELECT Credit FROM history WHERE CreatedTimeStamp ";
-// $resultHistory = $mysqli->query($sqlHistory);
 
 $date = Date("m");
 echo "<title>Übersicht</title>";
@@ -17,7 +14,7 @@ echo '<table class="table table-striped">
 
 for($i = 1; $i <= $date; $i ++)
 {
-    
+    $monthlyCredit = 0;
     $sql = "SELECT Credit,CreatedTimeStamp FROM history WHERE MONTH(CreatedTimeStamp) = $i AND IsAdded = 0";
     $result = $mysqli->query($sql);
 

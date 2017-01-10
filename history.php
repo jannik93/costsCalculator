@@ -47,7 +47,7 @@
                     </tr>';
                 }
 
-                echo "<tr><th>Betrag</th>><th>Getätigt von:</th><th>Getätigt am:</th><th>Beschreibung:</th></tr>";
+                echo "<tr><th>Betrag</th><th>Getätigt von:</th><th>Getätigt am:</th><th>Beschreibung:</th></tr>";
             
                 // output data of each row
                 while($rowHistory = $resultHistory->fetch_assoc()) 
@@ -86,7 +86,14 @@
                     }
                     echo "</tr>";  
                 }
-                    echo "</table>";
+                echo "</table>";
+
+                if(isset($_COOKIE['successfull']) && $_COOKIE['successfull'] == '1')
+                {
+                    echo "<div class='alert alert-success'>
+                        <strong>Gespeichert!</strong> Eingabe erfolgreich gespeichert!
+                        </div>";   
+                }
             }
         }
 ?>

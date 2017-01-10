@@ -54,8 +54,10 @@
                 $sqlUpdate = "UPDATE totalcredit SET Credit = $NewTotal ";
                 if ($mysqli->query($sqlUpdate) === TRUE) 
                 {
-                   header('location: ../history.php');
-                setcookie('$successfull', 1); 
+                    setcookie('$successfull','1',$expire = 0,"/"); 
+
+                    header('location: ../history.php');
+                    
                 } 
                 else 
                 {

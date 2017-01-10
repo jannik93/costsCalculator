@@ -20,7 +20,38 @@
 
     </head>
     <body>
-      <?php       
+      <?php  
+
+        $summaryIsActive = '';
+        $painIsActive = '';
+        $historyIsActive = '';
+        $homeIsActive = '';
+        $useCreditIsActive = '';
+
+        switch(basename($_SERVER["PHP_SELF"]))
+        {
+            case 'summary.php':
+                $summaryIsActive = 'active';
+                break;
+            
+            case 'payIn.php':
+                $painIsActive = 'active';
+                break;
+            
+            case 'history.php':
+                $historyIsActive = 'active';
+                break;
+
+            case 'useCredit.php':
+                $useCreditIsActive = 'active';
+                break;
+
+            default:
+                $homeIsActive = 'active';
+                
+            
+        }
+           
         if(isset($_SESSION['currentUser']))
         {
             echo  '<link href="theme/css/default.css" rel="stylesheet" />'; 
@@ -28,20 +59,22 @@
             echo  '<link href="theme/bootstrap-3.3.7/css/bootstrap-theme.css" rel="stylesheet"/>';
             echo  '<link href="theme/css/loginBox.css" rel="stylesheet"/>';
 
-            echo '<nav class="navbar navbar-default navbar-fixed-top">
+            echo '<nav class="navbar navbar-default">
                     <div class="container-fluid">
                         <div class="navbar-header">
                             <a class="navbar-brand" href="#">Kostenrechner</a>
                         </div>
-                        <ul class="nav navbar-nav">
-                            <li class="active "><a href="#">Home</a></li>
-                            <li><a href="summary.php">Übersicht</a></li>
-                            <li><a href="payIn.php">Einzahlen</a></li>
-                            <li><a href="history.php">History</a></li>      
-                            <li><a href="useCredit.php">Neuer Einkauf</a></li>      
+                        <ul class="nav navbar-nav">';
+           
+            echo    '<li class="'.$homeIsActive.'"><a href="#">Home</a></li>
+                            <li class="'.$summaryIsActive.'"><a href="summary.php">Übersicht</a></li>
+                            <li class="'.$painIsActive.'"><a href="payIn.php">Einzahlen</a></li>
+                            <li class="'.$historyIsActive.'"><a href="history.php">History</a></li>      
+                            <li class="'.$useCreditIsActive.'"><a href="useCredit.php">Neuer Einkauf</a></li>      
                         </ul>
                     </div>
                 </nav>';
+                            
 
         }
         else
