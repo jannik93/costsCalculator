@@ -54,7 +54,7 @@
                 $sqlUpdate = "UPDATE totalcredit SET Credit = $NewTotal ";
                 if ($mysqli->query($sqlUpdate) === TRUE) 
                 {
-                    setcookie('$successfull','1',$expire = 0,"/"); 
+                    
 
                     header('location: ../history.php');
                     
@@ -70,9 +70,7 @@
                            
 
         }
-        else 
-        {
-            setcookie('successfull', 0);
+        
             header('location: ../index.php');
         }
     }
@@ -80,7 +78,7 @@
     {       
         echo "wronginput";
         exit;
-            setcookie('$successfull', 0);
+           
             header('location: ../index.php');
     }
 
