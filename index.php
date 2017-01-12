@@ -98,8 +98,8 @@
                             <li class="'.$painIsActive.'"><a href="payIn.php">Einzahlen</a></li>
                             <li class="'.$historyIsActive.'"><a href="history.php">History</a></li>      
                             <li class="'.$useCreditIsActive.'"><a href="useCredit.php">Neuer Einkauf</a></li>   
-                            <li class="'.$addGasolineCostsIsActive.'"><a href="addGasolineCosts.php">Neue Spritkosten</a></li>   
-                            <li class="'.$gasolineHistoryIsActive.'"><a href="gasolineHistory.php">Spritkosten History</a></li>   
+                            <li class="'.$addGasolineCostsIsActive.'"><a href="#">Neue Spritkosten</a></li>   
+                            <li class="'.$gasolineHistoryIsActive.'"><a  href="#">Spritkosten History</a></li>   
                         </ul>
                     </div>
                 </div>
