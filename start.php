@@ -1,9 +1,10 @@
+<?php
+    include('index.php');
+?>
 <html>
     <head>
         <title>Start</title>
-        <?php
-            include('index.php');
-        ?>
+    
     </head> 
     <body>
 
