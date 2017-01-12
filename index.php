@@ -11,12 +11,24 @@
     <head>
 
         <meta charset="utf-8"/>
-         
-        <meta name="viewport"      content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <script src="theme/bootstrap-3.3.7/js/bootstrap.js"></script>
-        <script src="theme/bootstrap-3.3.7/js/npm.js"></script>
         <script src="script/jquery.js"></script>
+        <script src="theme/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+        
+
+        <?php  
+            if(isset($_SESSION['currentUser']))
+            {
+                echo  '<link rel="stylesheet" href="theme/bootstrap-3.3.7/css/bootstrap.css" />';
+                echo  '<link rel="stylesheet" href="theme/bootstrap-3.3.7/css/bootstrap-theme.css" />';
+                echo  '<link rel="stylesheet" href="theme/css/default.css" />'; 
+            }
+            else
+            {
+                echo  '<link rel="stylesheet" href="theme/css/loginBox.css" />';
+            }
+        ?>
 
         <link rel="icon" type="image/png" href="theme/images/icon.png" sizes="16x16">
 
@@ -29,6 +41,8 @@
         $historyIsActive = '';
         $homeIsActive = '';
         $useCreditIsActive = '';
+        $addGasolineCostsIsActive = '';
+        $gasolineHistoryIsActive = '';
 
         switch(basename($_SERVER["PHP_SELF"]))
         {
@@ -48,35 +62,49 @@
                 $useCreditIsActive = 'active';
                 break;
 
+            case 'addGasolineCosts.php':
+                $addGasolineCostsIsActive = 'active';
+                break;
+            
+            case 'gasolineHistory.php':
+                $gasolineHistoryIsActive = 'active';
+
             default:
                 $homeIsActive = 'active';
                 
-            
         }
            
         if(isset($_SESSION['currentUser']))
-        {
-            echo  '<link href="theme/css/default.css" rel="stylesheet" />'; 
-            echo  '<link href="theme/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet"/>';
-            echo  '<link href="theme/bootstrap-3.3.7/css/bootstrap-theme.css" rel="stylesheet"/>';
-            echo  '<link href="theme/css/loginBox.css" rel="stylesheet"/>';
+        { 
 
-            echo '<nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#">Kostenrechner</a>
-                        </div>
-                        <ul class="nav navbar-nav">';
-           
-            echo    '<li class="'.$homeIsActive.'"><a href="#">Home</a></li>
+    echo    '<nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="start.php">Kostenrechner</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                            <li class="'.$homeIsActive.'"><a href="start.php">Home</a></li>
                             <li class="'.$summaryIsActive.'"><a href="summary.php">Übersicht</a></li>
                             <li class="'.$painIsActive.'"><a href="payIn.php">Einzahlen</a></li>
                             <li class="'.$historyIsActive.'"><a href="history.php">History</a></li>      
-                            <li class="'.$useCreditIsActive.'"><a href="useCredit.php">Neuer Einkauf</a></li>      
+                            <li class="'.$useCreditIsActive.'"><a href="useCredit.php">Neuer Einkauf</a></li>   
+                            <li class="'.$addGasolineCostsIsActive.'"><a href="addGasolineCosts.php">Neue Spritkosten</a></li>   
+                            <li class="'.$gasolineHistoryIsActive.'"><a href="gasolineHistory.php">Spritkosten History</a></li>   
                         </ul>
                     </div>
-                </nav>';
-                            
+                </div>
+            </nav>';
+
 
         }
         else

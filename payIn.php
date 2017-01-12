@@ -1,6 +1,14 @@
-<?php
-    include('configuration.php');
+<?php session_start();
+if(isset($_SESSION))
+{
+    
     include('index.php');
+   
+}
+else
+{
+    header("Location: index.php");
+}
 ?>
 
 <html>

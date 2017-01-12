@@ -13,7 +13,6 @@
 
 
         //show table with history
-        
         $sqlHistory = "SELECT Credit, IsAdded, CreatedTimeStamp, UserId, Comment FROM history";
         $resultHistory = $mysqli->query($sqlHistory);
 
