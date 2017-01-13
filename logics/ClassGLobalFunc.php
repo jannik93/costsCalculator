@@ -1,8 +1,5 @@
 <?php 
 
-namespace logics
-{
-
         class ClassGlobalFunc
         {
 
@@ -47,5 +44,4 @@ namespace logics
                 return $userName;
             }
         }
-}
 ?>

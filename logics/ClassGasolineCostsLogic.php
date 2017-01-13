@@ -1,8 +1,5 @@
 <?php
-
-namespace logics
-{
-  
+ 
     class ClassGasolineCostsLogic
     {
         
@@ -28,4 +25,3 @@ namespace logics
 
         }
     } 
-}
