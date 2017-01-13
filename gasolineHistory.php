@@ -7,6 +7,9 @@ if(isset($_SESSION))
     include('logics/ClassGasolineCostsLogic.php');
     include('configuration.php');
    
+   echo "<title>Spritkosten History</title>";
+
+   echo "<h1 class='headline'>Spritkosten</h1>";
 }
 else
 {
@@ -15,9 +18,9 @@ else
 
 
     $classGasolineCostsLogic = new ClassGasolineCostsLogic;
-    $rowHistory = $classGasolineCostsLogic->GetHistoryForGasolineCosts($mysqli);
+    $resultHistory = $classGasolineCostsLogic->GetHistoryForGasolineCosts($mysqli);
 
-    $classGlobalFunc = new ClassGloClassGlobFuncbalFunc;
+    $classGlobalFunc = new ClassGlobalFunc;
     
     echo "<table class='table table-striped'>";
     echo "<tr><th>Kosten</th><th>Getätigt von</th><th>Getätigt am</th></tr>";

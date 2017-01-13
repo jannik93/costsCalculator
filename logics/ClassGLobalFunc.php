@@ -23,8 +23,9 @@
                 return $userId;
             }
 
-            function GetUserNameById($mysqli,$userID)
+            function GetUserNameById($mysqli,$userId)
             {
+                
                 $sqlUser="SELECT Username FROM users WHERE UserId = '$userId'";
                 $resultUser=$mysqli->query($sqlUser);     
 

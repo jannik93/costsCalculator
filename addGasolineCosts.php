@@ -5,6 +5,9 @@ if(isset($_SESSION))
     include('logics/ClassGlobalFunc.php');
     include('index.php');
     include("configuration.php");
+
+    echo "<title>Spritkosten Hinzufügen</title>";
+    echo "<h1 class='headline'>Neue Spritkosten</h1>";
 }
 else
 {

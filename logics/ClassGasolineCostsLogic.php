@@ -16,9 +16,9 @@
         //return the a history result
         public function GetHistoryForGasolineCosts($mysqli)
         {
-            include("ClassGlobalFunc.php");
+        
 
-            $sqlHistory = "SELECT Costs,CreatedTimeStamp, UserId  FROM gasolinecosts";
+            $sqlHistory = "SELECT Costs,UserId ,CreatedTimeStamp FROM gasolinecosts";
             $resultHistory = $mysqli->query($sqlHistory);
 
             return $resultHistory;
