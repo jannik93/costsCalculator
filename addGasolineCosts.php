@@ -18,13 +18,6 @@ else
 <html>
     <head>
         <title>Spritkosten hinzufügen</title>       
-        <link href="theme/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet"/>
-        <link href="theme/bootstrap-3.3.7/css/bootstrap-theme.css" rel="stylesheet"/>
-        <link href="theme/css/default.css" rel="stylesheet" /> 
-
-        <script src="theme/bootstrap-3.3.7/js/bootstrap.js"></script>
-        <script src="theme/bootstrap-3.3.7/js/npm.js"></script>
-        <script src="script/jquery.js"></script>
     </head>
     <body>
         <form method="post">

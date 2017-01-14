@@ -98,8 +98,13 @@
                             <li class="'.$painIsActive.'"><a href="payIn.php">Einzahlen</a></li>
                             <li class="'.$historyIsActive.'"><a href="history.php">History</a></li>      
                             <li class="'.$useCreditIsActive.'"><a href="useCredit.php">Neuer Einkauf</a></li>   
-                            <li class="'.$addGasolineCostsIsActive.'"><a href="addGasolineCosts.php">Neue Spritkosten</a></li>   
-                            <li class="'.$gasolineHistoryIsActive.'"><a  href="gasolineHistory.php">Spritkosten History</a></li>   
+                             <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Spritkosten<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li class="'.$addGasolineCostsIsActive.'"><a href="addGasolineCosts.php">Neue Spritkosten</a></li>   
+                                    <li class="'.$gasolineHistoryIsActive.'"><a  href="gasolineHistory.php">Spritkosten History</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
