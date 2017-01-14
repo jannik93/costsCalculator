@@ -26,6 +26,7 @@
             }
             else
             {
+                
                 echo  '<link rel="stylesheet" href="theme/css/loginBox.css" />';
             }
         ?>
@@ -105,6 +106,9 @@
                                     <li class="'.$gasolineHistoryIsActive.'"><a  href="gasolineHistory.php">Spritkosten History</a></li>
                                 </ul>
                             </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                           <li><a href="#" >Angemeldet '.$_SESSION['currentUser'].'</a></li> 
                         </ul>
                     </div>
                 </div>

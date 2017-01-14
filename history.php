@@ -3,14 +3,14 @@
     {
         session_start();
     }
-    echo "<title>History</title>";
+    echo '<title>'.$_SESSION['currentUser'].'History</title>';
     
     if(isset($_SESSION['currentUser']))
     {
 
         include("index.php");
         include("configuration.php");
-
+        echo "<h2>History</h2>";
 
         //show table with history
         $sqlHistory = "SELECT Credit, IsAdded, CreatedTimeStamp, UserId, Comment FROM history";

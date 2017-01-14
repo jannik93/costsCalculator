@@ -4,8 +4,8 @@ include("index.php");
 
 
 $date = Date("m");
-echo "<title>Übersicht</title>";
-
+echo "<title>".$_SESSION['currentUser']." - Übersicht</title>";
+echo "<h2>Übersicht</h2>";
 echo '<table class="table table-striped">
         <tr>
             <th>Monat</th>

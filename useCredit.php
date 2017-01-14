@@ -5,10 +5,12 @@
 <html>
 
     <head>
-        <title>Neuer Einkauf</title>
+        <?php 
+        echo "<title>".$_SESSION['currentUser']." - Neuer Einkauf</title>";
+        ?>
     </head>
     <body>
-
+        <h2>Neuer Einkauf</h2>
          <form action="logics/useCreditLogic.php" method="post">
             <div class="form-group" >
                 <label for="co">Betrag:</label>

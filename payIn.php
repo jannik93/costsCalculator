@@ -13,7 +13,10 @@ else
 
 <html>
     <head>
-        <title>Einzahlen</title>       
+        <?php
+        echo '<title>'.$_SESSION['currentUser'].' - Einzahlen</title>';
+        ?>
+            
         <link href="theme/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet"/>
         <link href="theme/bootstrap-3.3.7/css/bootstrap-theme.css" rel="stylesheet"/>
         <link href="theme/css/default.css" rel="stylesheet" /> 
@@ -23,6 +26,7 @@ else
         <script src="script/jquery.js"></script>
     </head>
     <body>
+        <h2>Einzahlen</h2>
         <form action="logics/payInLogic.php" method="post">
             <div class="form-group" >
                 <label for="cr">Betrag:</label>

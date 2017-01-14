@@ -73,7 +73,7 @@
         
             header('location: ../index.php');
         }
-    }
+    
     else
     {       
         echo "wronginput";

@@ -29,7 +29,7 @@
         
         $_SESSION['currentUser'] = $username;
 
-        header("Location: ../index.php");
+        header("Location: ../start.php");
     
     }
     else 
