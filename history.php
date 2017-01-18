@@ -32,22 +32,16 @@
 
         if ($resultHistory->num_rows > 0) 
             {
-                echo "<table class='table table-striped'>";
-                echo '<tr>';
-
-                if($totalCredit > 0)
-                {
-                    echo '<th style="color:green">Guthaben: '.$totalCreditFormated.' €'.'</th><th></th><th></th><th>
-                    </tr>';
-                }
-                else
-                {
-                echo '<th style="color:red">Guthaben:'.$totalCreditFormated.' €'.'</th><th></th><th></th><th>
-                    </tr>';
-                }
-
-                echo "<tr><th>Betrag</th><th>Getätigt von:</th><th>Getätigt am:</th><th>Beschreibung:</th></tr>";
+              
+                echo 
+                "<table id='myTable' class='table table-striped'>
+                <thead>
+                    <tr>
+                        <th>Betrag</th><th>Getätigt von:</th><th>Getätigt am:</th><th>Beschreibung:</th>
+                    </tr>
+                </thead>";
             
+                echo "<tbody>";
                 // output data of each row
                 while($rowHistory = $resultHistory->fetch_assoc()) 
                 {   
@@ -85,7 +79,23 @@
                     }
                     echo "</tr>";  
                 }
+                echo "</tbody>";
                 echo "</table>";
+
+                if($totalCredit > 0)
+                {
+                    // echo '<th style="color:green">Guthaben: '.$totalCreditFormated.' €'.'</th><th></th><th></th><th>
+                    // </tr>';
+                    echo '<span style="color:green">Guthaben:'.$totalCreditFormated.' €'.'</span>';
+                }
+                else
+                {
+                // echo '<th style="color:red">Guthaben:'.$totalCreditFormated.' €'.'</th><th></th><th></th><th>
+                //     </tr>';
+
+                    echo '<span style="color:red">Guthaben:'.$totalCreditFormated.' €'.'</span>';
+                }
+
 
                 if(isset($_COOKIE['successfull']) && $_COOKIE['successfull'] == '1')
                 {

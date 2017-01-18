@@ -13,15 +13,17 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <script src="script/jquery.js"></script>
-        <script src="theme/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-        
+             
 
         <?php  
             if(isset($_SESSION['currentUser']))
             {
+                echo  '<script src="script/jquery.js"></script>';
+                echo  '<script src="script/jquery-datatable.js"></script>';
+                echo  '<script src="theme/bootstrap-3.3.7/js/bootstrap.min.js"></script>';
                 echo  '<link rel="stylesheet" href="theme/bootstrap-3.3.7/css/bootstrap.css" />';
                 echo  '<link rel="stylesheet" href="theme/bootstrap-3.3.7/css/bootstrap-theme.css" />';
+                echo  '<link rel="stylesheet" href="theme/css/jquery-datatable.css" />';
                 echo  '<link rel="stylesheet" href="theme/css/default.css" />'; 
             }
             else
@@ -32,6 +34,13 @@
         ?>
 
         <link rel="icon" type="image/png" href="theme/images/icon.png" sizes="16x16">
+
+
+         <script>
+            $(document).ready(function(){
+                $('#myTable').DataTable();
+            });
+        </script>
 
     </head>
     <body>
